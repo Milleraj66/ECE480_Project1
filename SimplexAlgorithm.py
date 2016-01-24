@@ -39,13 +39,13 @@ def main():
     Constraints=int(input("How many constraints 1-3: "))
     try:
         for i in range(1,Variables+1):
-            ObjFunctArray.append(-float(input("Enter coefficient %d for the objective function"%(i))))
+            ObjFunctArray.append(-float(input("Enter coefficient %d for the objective function: "%(i))))
 
         for j in range(1,Constraints+1):
             ConstraintArray=[]
             for k in range (1,Variables+1):
-                             print("Constraint %d input:"%j)
-                             ConstraintArray.append(float(input("Enter coefficient %d for the constraint"%k)))
+                             print("Constraint %d input: "%j)
+                             ConstraintArray.append(float(input("Enter coefficient %d for constraint %d: "%(k,j))))
             SimplexArray.append(ConstraintArray)
     except ValueError:
         print("Please Enter only Integer Values")
@@ -143,10 +143,13 @@ def main():
             if(SimplexArray[ColSize][i] < 0):
                 counter = counter+1
         if (counter == 0):
-            print("Bottom Row Shows Maximum Solution: ",SimplexArray)
+            print("Bottom Row Shows Maximum Solution: ")
+            for p in SimplexArray:
+                print(SimplexArray)
             return 0
         #       h. print Table
-        print(SimplexArray)
+        for p in SimplexArray:
+            print(SimplexArray)
 
 # Standard boilerplate to call the main() function to begin
 # the program.
